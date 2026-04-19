@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KlasikKasnak — Türkiye'nin Araba Rehberi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=IBM+Plex+Mono:wght@400;500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" title="Yukarı Çık">↑</button>
+
+  <!-- ─── NAV ──────────────────────────────── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-badge">EST. 1990</span>
+        <a href="#" class="logo-text">KlasikKasnak</a>
+        <span class="logo-sub">Türkiye'nin Araba Rehberi</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#katalog">Katalog</a></li>
+        <li><a href="#siralama">Sıralama</a></li>
+        <li><a href="#hakkinda">Hakkında</a></li>
+      </ul>
+      <!-- DARK MODE TOGGLE — nav içinde, üst üste gelmesin -->
+      <button class="theme-toggle" id="themeToggle" title="Tema Değiştir">
+        <span class="theme-icon">◑</span>
+      </button>
+    </div>
+    <div class="nav-ticker">
+      <span class="ticker-label">2026 PİYASA</span>
+      <div class="ticker-items">
+        <span>Toyota Corolla E210 · 1.400.000–1.900.000 ₺</span>
+        <span>VW Golf 7 · 900.000–1.400.000 ₺</span>
+        <span>Fiat Egea · 750.000–1.100.000 ₺</span>
+        <span>Renault Clio 5 · 900.000–1.300.000 ₺</span>
+        <span>Hyundai i20 3 · 780.000–1.100.000 ₺</span>
+        <span>Honda Civic FK · 850.000–1.300.000 ₺</span>
+        <span>BMW E46 · 600.000–1.200.000 ₺</span>
+        <span>Mercedes W204 · 700.000–1.500.000 ₺</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────── -->
+  <header class="hero">
+    <div class="hero-ornament top-left"></div>
+    <div class="hero-ornament top-right"></div>
+    <div class="hero-ornament bot-left"></div>
+    <div class="hero-ornament bot-right"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">— Türkiye İkinci El Otomobil Rehberi —</p>
+      <h1 class="hero-title">
+        <span>100</span> Araç
+        <em>Motor · Şanzıman · Fiyat</em>
+      </h1>
+      <p class="hero-desc">1970'lerden 2026'ya kadar Türkiye sokaklarında görülen her modelin motor kodu, şanzıman güvenilirliği, dayanıklılık skoru ve güncel piyasa fiyatı tek sayfada.</p>
+      <div class="hero-stats">
+        <div class="stat-box"><strong>100</strong><span>Model</span></div>
+        <div class="stat-sep">·</div>
+        <div class="stat-box"><strong>18</strong><span>Marka</span></div>
+        <div class="stat-sep">·</div>
+        <div class="stat-box"><strong>2026</strong><span>Güncel Fiyat</span></div>
+        <div class="stat-sep">·</div>
+        <div class="stat-box"><strong>Kaynak:</strong><span>sahibinden.com · arabam.com</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── KATALOG ────────────────────────────── -->
+  <section class="catalog" id="katalog">
+    <div class="catalog-header">
+      <h2 class="section-title">Araç Kataloğu</h2>
+      <p class="section-sub">Filtreleri kullanarak aradığın aracı bul. Karta tıkla, detayları gör.</p>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters" id="filters">
+
+      <div class="filter-row">
+        <!-- Search -->
+        <div class="filter-group filter-search">
+          <label>Ara</label>
+          <input type="text" id="searchInput" placeholder="Marka, model, motor..." autocomplete="off">
+        </div>
+
+        <!-- Year -->
+        <div class="filter-group">
+          <label>Dönem</label>
+          <div class="btn-group" id="yearFilter">
+            <button class="fbtn active" data-val="tumu">Tümü</button>
+            <button class="fbtn" data-val="pre2000">-2000</button>
+            <button class="fbtn" data-val="2000s">2000–2009</button>
+            <button class="fbtn" data-val="2010s">2010–2019</button>
+            <button class="fbtn" data-val="2020s">2020+</button>
+          </div>
+        </div>
+
+        <!-- Category -->
+        <div class="filter-group">
+          <label>Kasa</label>
+          <div class="btn-group" id="catFilter">
+            <button class="fbtn active" data-val="tumu">Tümü</button>
+            <button class="fbtn" data-val="sedan">Sedan</button>
+            <button class="fbtn" data-val="hatchback">Hatchback</button>
+            <button class="fbtn" data-val="suv">SUV / 4x4</button>
+            <button class="fbtn" data-val="mpv">MPV</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <!-- Origin -->
+        <div class="filter-group">
+          <label>Menşei</label>
+          <div class="btn-group" id="originFilter">
+            <button class="fbtn active" data-val="tumu">Tümü</button>
+            <button class="fbtn" data-val="jp">🇯🇵 Japon</button>
+            <button class="fbtn" data-val="de">🇩🇪 Alman</button>
+            <button class="fbtn" data-val="fr">🇫🇷 Fransız</button>
+            <button class="fbtn" data-val="kr">🇰🇷 Kore</button>
+            <button class="fbtn" data-val="it">🇮🇹 İtalyan</button>
+            <button class="fbtn" data-val="tr">🇹🇷 Türk</button>
+            <button class="fbtn" data-val="se">🇸🇪 İsveç</button>
+            <button class="fbtn" data-val="ro">🇷🇴 Romen</button>
+          </div>
+        </div>
+
+        <!-- Sort -->
+        <div class="filter-group">
+          <label>Sırala</label>
+          <select id="sortSelect">
+            <option value="reliability">Sağlamlık (Yüksek→Düşük)</option>
+            <option value="year_asc">Yıl (Eski→Yeni)</option>
+            <option value="year_desc">Yıl (Yeni→Eski)</option>
+            <option value="price_asc">Fiyat (Ucuz→Pahalı)</option>
+            <option value="price_desc">Fiyat (Pahalı→Ucuz)</option>
+            <option value="name">A→Z</option>
+          </select>
+        </div>
+
+        <!-- Result count -->
+        <div class="filter-group filter-count">
+          <span id="resultCount">100 araç listeleniyor</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID -->
+    <div class="car-grid" id="carGrid"></div>
+
+    <!-- EMPTY STATE -->
+    <div class="empty-state" id="emptyState" style="display:none">
+      <p>⌀ Bu filtrelere uygun araç bulunamadı.</p>
+      <button onclick="resetFilters()">Filtreleri Sıfırla</button>
+    </div>
+  </section>
+
+  <!-- ─── SIRALAMA ──────────────────────────── -->
+  <section class="ranking" id="siralama">
+    <div class="rank-inner">
+      <h2 class="section-title">Güvenilirlik Sıralaması</h2>
+      <p class="section-sub">Motor, şanzıman, parça temini ve uzun vadeli kullanıma göre genel skor.</p>
+      <div class="rank-table-wrap">
+        <table class="rank-table" id="rankTable"></table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HAKKINDA ──────────────────────────── -->
+  <section class="about" id="hakkinda">
+    <div class="about-inner">
+      <div class="about-col">
+        <h2 class="section-title">Hakkında</h2>
+        <p>KlasikKasnak, Türkiye ikinci el otomobil piyasasına yönelik bağımsız bir bilgi rehberidir. Araç verileri sahibinden.com, arabam.com ve otosor.com.tr gibi Türkiye'nin önde gelen platformlarından derlenerek hazırlanmıştır.</p>
+        <p>Fiyat bilgileri 2026 yılı piyasa ortalamasını yansıtmakta olup referans niteliğindedir. Satın alma kararı vermeden önce güncel ilanları kontrol etmeniz ve profesyonel ekspertiz yaptırmanız tavsiye edilir.</p>
+      </div>
+      <div class="about-col">
+        <div class="disclaimer-box">
+          <strong>⚠ Sorumluluk Reddi</strong>
+          <p>Bu sitedeki fiyat ve teknik bilgiler araştırma amaçlıdır. Güvenilirlik skorları uzman değerlendirmesi ve kullanıcı deneyimlerine dayanmaktadır. Kesin karar için yetkili servis ve ekspertiz zorunludur.</p>
+        </div>
+        <div class="source-box">
+          <strong>Veri Kaynakları</strong>
+          <ul>
+            <li>sahibinden.com (2026 ilan fiyatları)</li>
+            <li>arabam.com (ikinci el piyasa verileri)</li>
+            <li>otosor.com.tr (teknik değerlendirmeler)</li>
+            <li>arabam.com/blog (güvenilirlik analizleri)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">KlasikKasnak</div>
+      <div class="footer-copy">© 2026 · Tüm fiyatlar 2026 yılı piyasa ortalamasıdır · Kaynak: sahibinden.com · arabam.com</div>
+    </div>
+  </footer>
+
+  <!-- ─── CAR DETAIL MODAL ──────────────────── -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+  <div class="modal" id="carModal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
