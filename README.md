@@ -59,36 +59,6 @@ klasik-kasnak/
 
 ---
 
-## 🚀 Kurulum
-
-Herhangi bir kurulum gerektirmez. Tarayıcıda doğrudan açılır.
-
-```bash
-# Repoyu klonla
-git clone https://github.com/kullanici-adi/klasik-kasnak.git
-
-# Klasöre gir
-cd klasik-kasnak
-
-# index.html'i tarayıcıda aç
-# → Dosyayı çift tıkla ya da:
-open index.html         # macOS
-xdg-open index.html     # Linux
-start index.html        # Windows
-```
-
-**Yerel sunucu ile** (önerilen):
-```bash
-# Python 3
-python3 -m http.server 8080
-
-# Node.js (npx serve)
-npx serve .
-```
-
-Ardından `http://localhost:8080` adresine git.
-
----
 
 ## 🖼️ Görseller
 
