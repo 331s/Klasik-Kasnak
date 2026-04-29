@@ -304,6 +304,8 @@ Renk Paleti (Dark Mode)
 
 ---
 
+## Görseller ve bilgiler temsilidir.
+
 ## 👤 Geliştirici
 
 **Barış** — [331s](https://github.com/331s)
