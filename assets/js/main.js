@@ -4,109 +4,11 @@
    ══════════════════════════════════════════════ */
 
 /* ─── GÖRSEL URL HARİTASI (Wikimedia Commons) ── */
-const W = 'https://commons.wikimedia.org/wiki/Special:FilePath/';
-const IMG_URLS = {
-  'tofas-sahin.jpg':       W+'Sahin.jpg',
-  'tofas-dogan.jpg':       W+'Tofaş_Doğan_ca_1994.jpg',
-  'tofas-kartal.jpg':      W+'1994_Tofaş_Kartal_SL_front.jpg',
-  'fiat-uno.jpg':          W+'Fiat_Uno_front_20080107.jpg',
-  'fiat-tipo.jpg':         W+'Fiat_Tipo_1.4_front_20080226.jpg',
-  'fiat-punto-1.jpg':      W+'Fiat_Punto_188_front_20071024.jpg',
-  'fiat-punto-2.jpg':      W+'Fiat_Grande_Punto_Front_20080308.jpg',
-  'fiat-linea.jpg':        W+'Fiat_Linea_2007_red.jpg',
-  'fiat-egea-sedan.jpg':   W+'Fiat_Tipo_sedan_(2016).jpg',
-  'fiat-egea-hb.jpg':      W+'Fiat_Tipo_hatchback_2016.jpg',
-  'fiat-egea-cross.jpg':   W+'Fiat_Tipo_Cross_2020.jpg',
-  'toyota-corolla-e90.jpg':W+'1993_Toyota_Corolla_(AE96)_Ultima_Seca_liftback_(2015-06-08)_02.jpg',
-  'toyota-corolla-e100.jpg':W+'Toyota_Corolla_(E100)_01.jpg',
-  'toyota-corolla-e110.jpg':W+'1997-1999_Toyota_Corolla_(AE102R)_CSi_sedan_(2015-06-08)_01.jpg',
-  'toyota-corolla-e120.jpg':W+'2001-2004_Toyota_Corolla_(ZZE122R)_Conquest_sedan_(2007-08-31).jpg',
-  'toyota-corolla-e140.jpg':W+'2009_Toyota_Corolla_(ZRE142R)_Ascent_sedan_(2010-08-13)_01.jpg',
-  'toyota-corolla-e150.jpg':W+'2013-2015_Toyota_Corolla_(ZRE172R)_Ascent_sedan_(2015-09-21)_01.jpg',
-  'toyota-corolla-e210.jpg':W+'2019_Toyota_Corolla_(ZRE172R)_Ascent_sedan_(2019-10-22)_01.jpg',
-  'toyota-yaris-1.jpg':    W+'Toyota_Yaris_XP10_02.jpg',
-  'toyota-yaris-2.jpg':    W+'2007_Toyota_Yaris_S_5-door_(2010-05-29)_02.jpg',
-  'toyota-yaris-3.jpg':    W+'2012_Toyota_Yaris_(NCP130R)_YR_5-door_hatchback_(2015-09-25)_01.jpg',
-  'toyota-yaris-4.jpg':    W+'2020_Toyota_Yaris_(MXPH10R)_GXL_hybrid_5-door_hatchback_(2021-02-11)_01.jpg',
-  'toyota-lc-80.jpg':      W+'1996_Toyota_Land_Cruiser_80_4.2_VX_in_Dark_Emerald_Pearl,_front_right.jpg',
-  'toyota-lc-100.jpg':     W+'1998_Toyota_Land_Cruiser_V8.jpg',
-  'toyota-chr.jpg':        W+'Toyota_C-HR_2016_(34175279786).jpg',
-  'toyota-rav4.jpg':       W+'2013_Toyota_RAV4_(ACA33R)_GXL_wagon_(2015-01-05)_01.jpg',
-  'honda-civic-eg.jpg':    W+'Honda_Civic_SiR_(EG).JPG',
-  'honda-civic-ek.jpg':    W+'1998_Honda_Civic_EK_sedan_(29476025701).jpg',
-  'honda-civic-ep.jpg':    W+'2001-2003_Honda_Civic_EP3_Type-R_hatchback_(2014-07-14)_02.jpg',
-  'honda-civic-fd.jpg':    W+'Honda_Civic_8th_Gen_FD_front.jpg',
-  'honda-civic-fk.jpg':    W+'2016_Honda_Civic_EX-T_sedan_(32835701803).jpg',
-  'honda-civic-fe.jpg':    W+'2022_Honda_Civic_Sport_sedan_(51989695013).jpg',
-  'vw-golf-3.jpg':         W+'1994_Volkswagen_Golf_1.8_Driver_(18933940398).jpg',
-  'vw-golf-4.jpg':         W+'2003-2004_Volkswagen_Golf_(1J)_Sport_5-door_hatchback_01.jpg',
-  'vw-golf-5.jpg':         W+'2005_Volkswagen_Golf_(1K)_Comfortline_2.0_FSI_5-door_hatchback_(2015-07-09)_01.jpg',
-  'vw-golf-6.jpg':         W+'2011_Volkswagen_Golf_S_1.2_Front.jpg',
-  'vw-golf-7.jpg':         W+'2013_Volkswagen_Golf_(5G_MY13)_103TSI_Highline_5-door_hatchback_(2015-07-24)_01.jpg',
-  'vw-golf-8.jpg':         W+'2020_Volkswagen_Golf_VIII_1.5_eTSI_DSG_Highline_5-door_hatchback_(2021-07-14)_01.jpg',
-  'vw-passat-b5.jpg':      W+'1999_Volkswagen_Passat_(3B)_2.3_V5_(1999-2001)_front_20081018.jpg',
-  'vw-passat-b6.jpg':      W+'Volkswagen_Passat_B6_front_20080218.jpg',
-  'vw-passat-b8.jpg':      W+'2015_Volkswagen_Passat_(3G)_1.6_TDI_Comfortline_sedan_(2016-10-02)_01.jpg',
-  'vw-polo-4.jpg':         W+'2002_Volkswagen_Polo_(9N)_1.2_3-door_hatchback_(2009-09-11)_01.jpg',
-  'vw-polo-5.jpg':         W+'2009_Volkswagen_Polo_(6R)_1.2_5-door_hatchback_(2009-09-28)_02.jpg',
-  'vw-polo-6.jpg':         W+'2017_Volkswagen_Polo_(AW)_1.0_TSI_5-door_hatchback_(2018-01-04)_01.jpg',
-  'bmw-e36.jpg':           W+'1996_BMW_316i_(E36)_sedan_(2015-08-14)_01.jpg',
-  'bmw-e46.jpg':           W+'2001_BMW_330Ci_(E46)_coupe_(2015-08-12)_01.jpg',
-  'bmw-e90.jpg':           W+'2005-2008_BMW_320i_(E90)_sedan_(2009-06-30).jpg',
-  'bmw-f30.jpg':           W+'2012_BMW_328i_(F30)_sedan_(2012-07-16).jpg',
-  'mercedes-w124.jpg':     W+'Mercedes-Benz_W124_E220_front_20080224.jpg',
-  'mercedes-w202.jpg':     W+'Mercedes-Benz_C-Klasse_W202_Front_20080117.jpg',
-  'mercedes-w203.jpg':     W+'Mercedes-Benz_C-Klasse_W203_front_20100601.jpg',
-  'mercedes-w204.jpg':     W+'Mercedes-Benz_C-Klasse_W204_front_20100601.jpg',
-  'mercedes-w205.jpg':     W+'Mercedes-Benz_C-Klasse_W205_front_20141028.jpg',
-  'opel-vectra-a.jpg':     W+'Opel_Vectra_A_front_20090614.jpg',
-  'opel-vectra-b.jpg':     W+'Opel_Vectra_B_front_20090610.jpg',
-  'opel-vectra-c.jpg':     W+'Opel_Vectra_C_front_20100621.jpg',
-  'opel-astra-f.jpg':      W+'Opel_Astra_F_front_20090815.jpg',
-  'opel-astra-g.jpg':      W+'Opel_Astra_G_Cabrio_front_20090705.jpg',
-  'opel-astra-h.jpg':      W+'Opel_Astra_H_front_20070812.jpg',
-  'opel-astra-j.jpg':      W+'Opel_Astra_J_front_20100911.jpg',
-  'opel-corsa-c.jpg':      W+'Opel_Corsa_C_front_20071009.jpg',
-  'opel-corsa-d.jpg':      W+'Opel_Corsa_D_front_20100601.jpg',
-  'renault-19.jpg':        W+'Renault_19_front_20081005.jpg',
-  'renault-symbol-1.jpg':  W+'Renault_Symbol_front_20080802.jpg',
-  'renault-symbol-2.jpg':  W+'Renault_Symbol_II_front.jpg',
-  'renault-symbol-3.jpg':  W+'Renault_Symbol_III_2012.jpg',
-  'renault-clio-2.jpg':    W+'Renault_Clio_II_phase_2_front_20080901.jpg',
-  'renault-clio-3.jpg':    W+'Renault_Clio_III_front_20080727.jpg',
-  'renault-clio-4.jpg':    W+'Renault_Clio_IV_front.jpg',
-  'renault-clio-5.jpg':    W+'Renault_Clio_V_front.jpg',
-  'renault-megane-2.jpg':  W+'Renault_Megane_II_front_20080901.jpg',
-  'renault-megane-3.jpg':  W+'Renault_Megane_III_front.jpg',
-  'renault-megane-4.jpg':  W+'Renault_Megane_IV_front.jpg',
-  'hyundai-accent-lc.jpg': W+'2001_Hyundai_Accent_LC_1.3_GLS_sedan_(2010-10-04).jpg',
-  'hyundai-accent-mc.jpg': W+'2006_Hyundai_Accent_MC_1.4_GLS_5-door_(2010-10-28)_01.jpg',
-  'hyundai-accent-rb.jpg': W+'2011_Hyundai_Accent_(RB)_Active_4-door_sedan_(2012-01-02).jpg',
-  'hyundai-i20-1.jpg':     W+'2008_Hyundai_i20_(PB)_Active_5-door_hatchback_(2011-01-10).jpg',
-  'hyundai-i20-2.jpg':     W+'2014_Hyundai_i20_(GB)_Active_5-door_hatchback_(2015-06-19)_01.jpg',
-  'hyundai-i20-3.jpg':     W+'2020_Hyundai_i20_(BC3)_N_Line_5-door_hatchback_(2021-03-05)_01.jpg',
-  'hyundai-elantra-6.jpg': W+'2016_Hyundai_Elantra_(AD)_Elite_sedan_(2017-01-05)_01.jpg',
-  'hyundai-tucson-3.jpg':  W+'2015_Hyundai_Tucson_(TL)_Elite_AWD_wagon_(2015-10-16)_01.jpg',
-  'kia-rio-2.jpg':         W+'2006_Kia_Rio_(JB)_LX_5-door_hatchback_(2009-08-07).jpg',
-  'kia-rio-3.jpg':         W+'2012_Kia_Rio_(UB)_SLS_5-door_hatchback_(2012-06-17).jpg',
-  'kia-ceed-1.jpg':        W+"Kia_Ceed_SW_ED_front_2007.jpg",
-  'kia-ceed-2.jpg':        W+"Kia_Cee'd_JD_front.jpg",
-  'peugeot-206.jpg':       W+'Peugeot_206_front_20081024.jpg',
-  'peugeot-207.jpg':       W+'Peugeot_207_front_20081024.jpg',
-  'peugeot-208-1.jpg':     W+'Peugeot_208_A9_front_2012.jpg',
-  'peugeot-208-2.jpg':     W+'Peugeot_208_P21_front_2019.jpg',
-  'peugeot-301.jpg':       W+'Peugeot_301_front.jpg',
-  'nissan-patrol-y60.jpg': W+'Nissan_Patrol_Y60_front_20071006.jpg',
-  'nissan-micra-k12.jpg':  W+'2003_Nissan_Micra_(K12)_1.2_S_5-door_hatchback_(2009-06-19).jpg',
-  'nissan-qashqai-2.jpg':  W+'2014_Nissan_Qashqai_(J11)_ST_wagon_(2015-02-03)_01.jpg',
-  'dacia-logan-1.jpg':     W+'Dacia_Logan_front_20081016.jpg',
-  'dacia-duster-1.jpg':    W+'Dacia_Duster_front_20110326.jpg',
-  'dacia-duster-2.jpg':    W+'2018_Dacia_Duster_(HM)_Laureate_dCi_110_4X4_(2018-10-17)_01.jpg',
-  'skoda-octavia-2.jpg':   W+'2004_Skoda_Octavia_(1Z3)_Tour_1.6_FSI_5-door_hatchback_(2011-01-13).jpg',
-  'seat-leon-2.jpg':       W+'2005_Seat_Leon_(1P)_FR_5-door_hatchback_(2012-08-08)_01.jpg',
-  'volvo-s40.jpg':         W+'2004_Volvo_S40_(P11)_2.0_(2008-08-26)_01.jpg',
-  'togg-t10x.jpg':         W+'TOGG_T10X_2023.jpg',
-};
+/* ─── ARAÇ GÖRSELLERİ (assets/img/ klasöründen yüklenir) ─── */
+// Görsel bulunamazsa placeholder gösterilir
+function getImgUrl(filename) {
+  return filename ? `assets/img/${filename}` : null;
+}
 
 // Görsel URL'sini döndür — Wikimedia Commons yüklenemezse placeholder
 function getImgUrl(filename) {
@@ -312,7 +214,7 @@ const CARS = [
     notes: 'Türkiye\'de E140/E150 kodu ile satıldı (2006-2013). 1.6L en yaygın seçenek.'
   },
   {
-    id: 17, brand: 'Toyota', model: 'Corolla', gen: 'E170 (11. Nesil)', img: 'toyota-corolla-e150.jpg',
+    id: 17, brand: 'Toyota', model: 'Corolla', gen: 'E170 (11. Nesil)', img: 'toyota-corolla-e170.jpg',
     year_start: 2013, year_end: 2019, cat: 'sedan', origin: 'jp',
     engine: '1.33L 2NR / 1.6L 1ZR / 2.0L', transmission: 'Manuel 6 / CVT',
     fuel: 'Benzinli', power: '98–152 HP',
@@ -1450,7 +1352,7 @@ function catLabel(c) {
 }
 
 function cardHTML(c, num) {
-  const img = IMG_URLS[c.img] || `assets/img/${c.img}`;
+  const img = `assets/img/${c.img}`;
   return `
   <div class="car-card" onclick="openModal(${c.id})">
     <div class="card-img-wrap">
@@ -1490,7 +1392,7 @@ function openModal(id) {
   const c = CARS.find(x => x.id === id);
   if (!c) return;
 
-  const img = IMG_URLS[c.img] || '';
+  const img = c.img ? `assets/img/${c.img}` : '';
   const imgSection = img
     ? `<img src="${img}" alt="${c.brand} ${c.model}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
        <div class="modal-img-placeholder" style="display:none"><span>🚗</span><span>${c.brand} ${c.model}</span></div>`
@@ -1612,8 +1514,8 @@ function slugify(str) {
 }
 
 const BRAND_SLUGS = {
-  'Toyota':'toyota','Honda':      'https://commons.wikimedia.org/wiki/Special:FilePath/Honda_H_logo.svg','Volkswagen':'volkswagen',
-  'BMW':'bmw','Mercedes':   'https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz_Logo_2010.svg','Opel':'opel',
+  'Toyota':'toyota','Honda':'honda','Volkswagen':'volkswagen',
+  'BMW':'bmw','Mercedes':'mercedes-benz','Opel':'opel',
   'Renault':'renault','Hyundai':'hyundai','Kia':'kia',
   'Peugeot':'peugeot','Nissan':'nissan','Dacia':'dacia',
   'Skoda':'skoda','Seat':'seat','Volvo':'volvo',
@@ -1633,24 +1535,24 @@ function sahibindenURL(c) {
 
 /* ─── MARKA LOGO URL HARİTASI (Wikimedia Commons SVG) ─── */
 const BRAND_LOGOS = {
-  'Toyota':     'https://commons.wikimedia.org/wiki/Special:FilePath/Toyota_EU.svg',
-  'Honda':      'https://commons.wikimedia.org/wiki/Special:FilePath/Honda_H_logo.svg',
-  'Volkswagen': 'https://commons.wikimedia.org/wiki/Special:FilePath/Volkswagen_logo_2019.svg',
-  'BMW':        'https://commons.wikimedia.org/wiki/Special:FilePath/BMW.svg',
-  'Mercedes':   'https://commons.wikimedia.org/wiki/Special:FilePath/Mercedes-Benz_Logo_2010.svg',
-  'Opel':       'https://commons.wikimedia.org/wiki/Special:FilePath/Opel_2021.svg',
-  'Renault':    'https://commons.wikimedia.org/wiki/Special:FilePath/Renault_2021_Text_Logo.svg',
-  'Hyundai':    'https://commons.wikimedia.org/wiki/Special:FilePath/Hyundai_Motor_Company_logo.svg',
-  'Kia':        'https://commons.wikimedia.org/wiki/Special:FilePath/Kia_logo.svg',
-  'Peugeot':    'https://commons.wikimedia.org/wiki/Special:FilePath/Peugeot_logo.svg',
-  'Nissan':     'https://commons.wikimedia.org/wiki/Special:FilePath/Nissan_2020_logo.svg',
-  'Dacia':      'https://commons.wikimedia.org/wiki/Special:FilePath/Dacia_2022.svg',
-  'Skoda':      'https://commons.wikimedia.org/wiki/Special:FilePath/Škoda_wordmark.svg',
-  'Seat':       'https://commons.wikimedia.org/wiki/Special:FilePath/SEAT_logo.svg',
-  'Volvo':      'https://commons.wikimedia.org/wiki/Special:FilePath/Volvo_Cars-Logo.svg',
-  'Fiat':       'https://commons.wikimedia.org/wiki/Special:FilePath/Fiat_logo.svg',
-  'Tofaş':      'https://commons.wikimedia.org/wiki/Special:FilePath/TOFAŞ_logo_(2019-).svg',
-  'Togg':       'https://commons.wikimedia.org/wiki/Special:FilePath/Togg_logo.svg',
+  'Toyota':     'assets/img/logos/logo-toyota.png',
+  'Honda':      'assets/img/logos/logo-honda.png',
+  'Volkswagen': 'assets/img/logos/logo-volkswagen.png',
+  'BMW':        'assets/img/logos/logo-bmw.png',
+  'Mercedes':   'assets/img/logos/logo-mercedes.png',
+  'Opel':       'assets/img/logos/logo-opel.png',
+  'Renault':    'assets/img/logos/logo-renault.png',
+  'Hyundai':    'assets/img/logos/logo-hyundai.png',
+  'Kia':        'assets/img/logos/logo-kia.png',
+  'Peugeot':    'assets/img/logos/logo-peugeot.png',
+  'Nissan':     'assets/img/logos/logo-nissan.png',
+  'Dacia':      'assets/img/logos/logo-dacia.png',
+  'Skoda':      'assets/img/logos/logo-skoda.png',
+  'Seat':       'assets/img/logos/logo-seat.png',
+  'Volvo':      'assets/img/logos/logo-volvo.png',
+  'Fiat':       'assets/img/logos/logo-fiat.png',
+  'Tofaş':      'assets/img/logos/logo-tofas.png',
+  'Togg':       'assets/img/logos/logo-togg.png',
 };
 
 function logoHTML(brand) {
